@@ -1,16 +1,29 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+app.use(bodyParser.json());
+app.use(cors());
+
+const corsOption ={
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200,
+}
 
 app.listen(3210, () => {
-  console.log('Сервер запущен на порту 3001');
+  console.log('Сервер запущен на порту 3210');
 });
 
-app.get('/', (req, res) => {
+app.get('/', cors(corsOption), (req, res) => {
   console.log('Сделали запррос');
   res.send('Бэк для чата почти готов');
 });
 
-app.get('/setLogin', (req, res) => {
+app.get('/setLogin', cors(corsOption), (req, res) => {
   console.log('Сделали запррос на установку логина');
-  res.send('Бэк для чата почти готов');
+  setTimeout(() => {
+    res.send({login:'SuperSasha'});
+  }, 5000);
+ 
 });
