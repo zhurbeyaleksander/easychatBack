@@ -20,10 +20,10 @@ app.get('/', cors(corsOption), (req, res) => {
   res.send('Бэк для чата почти готов');
 });
 
-app.get('/setLogin', cors(corsOption), (req, res) => {
+app.post('/signup', cors(corsOption), (req, res) => {
   console.log('Сделали запррос на установку логина');
   setTimeout(() => {
-    res.send({login:'SuperSasha'});
+    res.send('Test')
   }, 5000);
  
 });
