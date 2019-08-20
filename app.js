@@ -22,8 +22,5 @@ app.get('/', cors(corsOption), (req, res) => {
 
 app.post('/signup', cors(corsOption), (req, res) => {
   console.log('Сделали запррос на установку логина');
-  setTimeout(() => {
-    res.send('Test')
-  }, 5000);
- 
+    res.send({signupStatus: 1});
 });
