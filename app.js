@@ -23,4 +23,5 @@ app.get('/', cors(corsOption), (req, res) => {
 app.post('/signup', cors(corsOption), (req, res) => {
   console.log('Сделали запррос на установку логина');
     res.send({signupStatus: 1});
+    //res.send({error_list: [{id: 1, errorMessage: 'Пароль заполнен неверно'}, {id: 2, errorMessage: 'Такой логин уже имеется'}]});
 });
